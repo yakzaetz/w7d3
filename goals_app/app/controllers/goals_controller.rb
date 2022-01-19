@@ -17,4 +17,9 @@ class GoalsController < ApplicationController
         @goal.destroy
         redirect_to user_url(@goal.user)
     end
+
+    private
+    def goal_params
+        params.require(:goal).permit(:name, :details, :status, :user_id)
+    end
 end 
